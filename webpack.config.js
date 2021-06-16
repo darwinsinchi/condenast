@@ -1,12 +1,21 @@
-const path = require('path');
-const babelConfig = require('./babel.config.json');
+const path = require("path");
+const babelConfig = require("./babel.config.json");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  mode: process.env.NODE_ENV,
+  entry: "./src/index.js",
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, './public/js')
+    filename: "app.js",
+    path: path.resolve(__dirname, "./public/js"),
+  },
+  devServer: {
+    hot: true,
+    publicPath: "./public",
+    host: "localhost",
+    port: 8080,
+    proxy: {
+      "*": "http://localhost:3000",
+    },
   },
   module: {
     rules: [
@@ -14,14 +23,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|pubilc)/,
         use: {
-          loader: 'babel-loader',
-          options: babelConfig
-        }
+          loader: "babel-loader",
+          options: babelConfig,
+        },
       },
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };
