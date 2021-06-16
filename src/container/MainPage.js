@@ -1,14 +1,31 @@
 import React from "react";
-import Footer from "../components/Footer";
 import AllNews from "../components/AllNews";
-import NAVbar from "../components/NAVbar";
+import { Route, Switch } from "react-router-dom";
 
 function MainPage() {
+  const [news, setNews] = useState([]);
+  const getNews = async () => {
+    try {
+      const response = await fetch("/api");
+      const jsonData = await response.json();
+      setNews(jsonData.articles);
+    } catch (error) {}
+  };
+  console.log(news);
+  useEffect(() => {
+    getNews();
+  }, []);
+
   return (
     <div className="MainPage">
-      <NAVbar />
-      <AllNews />
-      <Footer />
+      <Switch>
+        <Route exact path="/">
+          <AllNews news={news} />
+        </Route>
+        <Route path="/article/:url">
+          {/* <SingleArticle news={news} /> */}
+        </Route>
+      </Switch>
     </div>
   );
 }

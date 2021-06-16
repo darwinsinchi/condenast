@@ -8,18 +8,26 @@
 .allArticles {
   display: flex;
   flex-direction: row;
-
-  width: 800px;
+  width: 1000px;
+  height: 300px;
+  margin: 20px;
 }
 
 .articleInfo {
   display: flex;
   flex-direction: column;
-  width: 3000px;
+  width: 600px;
 }
 
 .articleImg {
-  width: 300px;
+  width: 400px;
+  height: 300px;
+  transition: filter 0.5s ease-in-out;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
 
-  object-fit: contain;
+.image:hover {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
