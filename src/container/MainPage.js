@@ -5,7 +5,7 @@ import NAVbar from "../components/NAVbar";
 
 function MainPage() {
   return (
-    <div>
+    <div className="MainPage">
       <NAVbar />
       <AllNews />
       <Footer />

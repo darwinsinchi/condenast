@@ -1,0 +1,25 @@
+.articleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.allArticles {
+  display: flex;
+  flex-direction: row;
+
+  width: 800px;
+}
+
+.articleInfo {
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+}
+
+.articleImg {
+  width: 300px;
+
+  object-fit: contain;
+}

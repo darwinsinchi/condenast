@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MainPage from "./container/MainPage";
+import "./index.css";
 
 const Component = () => {
   return (

@@ -15,10 +15,17 @@ function AllNews() {
   }, []);
 
   return (
-    <div>
+    <div className="articleWrapper">
       {news.map((article, i) => (
-        <div key={i}>
-          <div>{article.title}</div>
+        <div className="allArticles" key={i}>
+          <div className="articleInfo">
+            <h4>Featured</h4>
+            <h2>{article.title}</h2>
+            <h4>{article.description}</h4>
+          </div>
+          <div>
+            <img className="articleImg" src={article.urlToImage} alt="" />
+          </div>
         </div>
       ))}
       <p>HEEYYYY</p>
